@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     appleWebApp: {
         title: "Tre",
     },
+    metadataBase: new URL(
+        process.env.NEXT_PUBLIC_BASE_URL &&
+            (process.env.NEXT_PUBLIC_BASE_URL.startsWith("http")
+                ? process.env.NEXT_PUBLIC_BASE_URL
+                : `https://${process.env.NEXT_PUBLIC_BASE_URL}`)
+            || "http://localhost:3000"
+    ),
 };
 
 export default function RootLayout({
