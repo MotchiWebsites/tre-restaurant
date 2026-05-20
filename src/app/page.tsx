@@ -41,6 +41,23 @@ const signatureItems = [
     },
 ];
 
+const designConcepts = [
+    {
+        title: "Desktop concept",
+        description:
+            "A wide-screen brand direction using antique gold linework, circular corner ornaments, and a centered TRE mark for a refined restaurant landing page.",
+        image: "/images/tre-concept-desktop.png",
+        alt: "Desktop design concept for TRE restaurant using dark navy background, gold linework, logo, bamboo illustration, and navigation elements",
+    },
+    {
+        title: "Mobile concept",
+        description:
+            "A mobile-first version of the same visual system, keeping the gold framing, large logo treatment, and editorial luxury feel.",
+        image: "/images/tre-concept-mobile.png",
+        alt: "Mobile design concept for TRE restaurant with dark navy background, gold logo, bamboo illustration, and framed content details",
+    },
+];
+
 const highlights = [
     "Vietnamese heritage with a modern evening feel",
     "Golden lighting, polished details, and warm ambience",
@@ -207,6 +224,87 @@ export default function Home() {
                 </div>
             </section>
 
+            <section className="relative overflow-hidden bg-tre-concept-night py-28 text-white">
+                <div className="absolute inset-x-0 top-8 h-px bg-tre-concept-gold/70" />
+                <div className="absolute inset-x-0 top-11 h-px bg-tre-concept-gold/45" />
+                <div className="absolute inset-x-0 bottom-8 h-px bg-tre-concept-gold/70" />
+                <div className="absolute inset-x-0 bottom-11 h-px bg-tre-concept-gold/45" />
+
+                <div className="absolute left-6 top-5 size-7 rounded-full border border-tre-concept-gold" />
+                <div className="absolute left-8 top-7 size-3 rounded-full border border-tre-concept-gold" />
+                <div className="absolute bottom-5 right-6 size-7 rounded-full border border-tre-concept-gold" />
+                <div className="absolute bottom-7 right-8 size-3 rounded-full border border-tre-concept-gold" />
+
+                <div className="tre-container relative">
+                    <div className="mx-auto mb-14 max-w-3xl text-center">
+                        <p className="tre-eyebrow mb-4 text-tre-concept-gold">
+                            Design Direction
+                        </p>
+
+                        <h2 className="text-4xl font-semibold tracking-[-0.04em] text-white sm:text-6xl">
+                            A visual system inspired by TRE&apos;s gold-on-night
+                            identity.
+                        </h2>
+
+                        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-white/60">
+                            These early concepts shaped the website&apos;s
+                            luxury direction: dark atmospheric backgrounds,
+                            antique gold accents, thin ornamental linework,
+                            strong logo presence, and a balance between heritage
+                            details and modern restaurant polish.
+                        </p>
+                    </div>
+
+                    <div className="grid gap-8 justify-center lg:grid-cols-[1.25fr_0.75fr] lg:items-stretch">
+                        {designConcepts.map((concept, index) => (
+                            <motion.article
+                                key={concept.title}
+                                initial={{ opacity: 0, y: 28 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-120px" }}
+                                transition={{
+                                    duration: 0.65,
+                                    delay: index * 0.1,
+                                }}
+                                className="group flex h-full flex-col overflow-hidden rounded-4xl border border-tre-concept-gold/40 bg-white/3 p-3 shadow-[0_30px_90px_rgba(0,0,0,0.35)]"
+                            >
+                                <div className="flex flex-1 items-center">
+                                    <div
+                                        className={`relative overflow-hidden rounded-[1.55rem] bg-tre-concept-night-soft ${
+                                            index === 0
+                                                ? "aspect-16/10 w-full"
+                                                : "mx-auto aspect-9/16 w-full max-w-82.5 lg:max-w-none"
+                                        }`}
+                                    >
+                                        <Image
+                                            src={concept.image}
+                                            alt={concept.alt}
+                                            fill
+                                            className="object-contain p-2 transition duration-700 group-hover:scale-[1.025]"
+                                            sizes={
+                                                index === 0
+                                                    ? "(min-width: 1024px) 65vw, 100vw"
+                                                    : "(min-width: 1024px) 35vw, 80vw"
+                                            }
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="p-5">
+                                    <div className="mb-4 h-px w-16 bg-tre-concept-gold" />
+                                    <h3 className="text-2xl font-semibold text-white">
+                                        {concept.title}
+                                    </h3>
+                                    <p className="mt-3 leading-7 text-white/55">
+                                        {concept.description}
+                                    </p>
+                                </div>
+                            </motion.article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section id="story" className="tre-soft-gradient py-28">
                 <div className="tre-container grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
                     <motion.div
@@ -283,6 +381,7 @@ export default function Home() {
                                         src={item.image}
                                         alt={item.alt}
                                         fill
+                                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                                         className="object-cover transition duration-700 group-hover:scale-105"
                                     />
                                     <div className="absolute left-4 top-4 z-10 rounded-full bg-black/45 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
@@ -316,6 +415,7 @@ export default function Home() {
                                 src="/images/store-placeholder.png"
                                 alt="Warm restaurant bar with golden lighting, wood textures, and premium cocktails"
                                 fill
+                                sizes="(min-width: 1024px) 60vw, 90vw"
                                 className="object-cover"
                             />
                             <div className="absolute left-4 top-4 z-10 rounded-full bg-black/45 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-white/85 backdrop-blur-sm">
@@ -328,6 +428,7 @@ export default function Home() {
                                 src="/images/detail-placeholder.png"
                                 alt="Close-up of Vietnamese herbs, elegant tableware, and refined restaurant details"
                                 fill
+                                sizes="(min-width: 1024px) 60vw, 90vw"
                                 className="object-cover"
                             />
                         </div>
