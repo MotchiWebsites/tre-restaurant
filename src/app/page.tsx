@@ -110,7 +110,7 @@ export default function Home() {
                     <div className="h-full w-full bg-[linear-gradient(90deg,transparent_0,transparent_31px,rgba(255,255,255,.6)_32px),linear-gradient(180deg,transparent_0,transparent_31px,rgba(255,255,255,.6)_32px)] bg-size-[32px_32px]" />
                 </div>
 
-                <div className="tre-container relative grid min-h-205 items-center gap-12 py-16 lg:grid-cols-[1.05fr_0.95fr]">
+                <div className="tre-container relative grid min-h-screen items-center gap-12 py-16 xl:grid-cols-[0.95fr_0.85fr] 2xl:grid-cols-[1.05fr_0.95fr]">
                     <motion.div
                         variants={stagger}
                         initial="hidden"
@@ -159,19 +159,18 @@ export default function Home() {
                             </a>
                         </motion.div>
                     </motion.div>
-
                     <motion.div
                         initial={{ opacity: 0, scale: 0.96, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         transition={{ duration: 0.9, ease: "easeOut" }}
-                        className="relative"
+                        className="relative mx-auto w-full max-w-4xl xl:max-w-none"
                     >
                         <div className="absolute -left-6 top-12 hidden h-72 w-24 rounded-full bg-tre-gold/20 blur-3xl lg:block" />
 
-                        <div className="tre-card relative overflow-hidden rounded-4xl border-tre-gold/25 bg-white/5 p-3 backdrop-blur">
-                            <div className="tre-image-mask relative overflow-hidden h-130 sm:h-150 lg:h-165 xl:h-180">
+                        <div className="tre-card md:max-w-xl lg:max-w-2xl mx-auto xl:max-w-none relative overflow-hidden rounded-4xl border-tre-gold/25 bg-white/5 p-3 backdrop-blur">
+                            <div className="tre-image-mask relative overflow-hidden h-170 sm:h-190 lg:h-215 xl:h-180 2xl:h-195">
                                 <video
-                                    className="h-full w-full object-cover object-[center_58%] md:object-[center_62%] lg:object-[center_68%] xl:object-[center_72%]"
+                                    className="h-full w-full object-cover object-[center_62%] sm:object-[center_66%] lg:object-[center_70%] xl:object-[center_74%] 2xl:object-[center_76%]"
                                     autoPlay
                                     muted
                                     loop
@@ -185,7 +184,6 @@ export default function Home() {
                                         type="video/mp4"
                                     />
                                 </video>
-
                                 <div className="absolute inset-0 bg-linear-to-t from-tre-ink via-tre-ink/20 to-transparent" />
                                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,transparent_0%,rgba(22,18,14,0.22)_72%)]" />
                             </div>
@@ -249,7 +247,7 @@ export default function Home() {
 
             <section id="menu" className="bg-tre-ink py-28 text-white">
                 <div className="tre-container">
-                    <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                    <div className="mb-14 flex flex-col justify-between gap-6 lg:flex-row md:items-end">
                         <div>
                             <p className="tre-eyebrow mb-4 text-tre-gold">
                                 Signature Plates
@@ -267,7 +265,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid gap-6 lg:grid-cols-3">
+                    <div className="grid gap-6 lg:grid-cols-3 md:max-w-xl mx-auto lg:max-w-none">
                         {signatureItems.map((item, index) => (
                             <motion.article
                                 key={item.name}
